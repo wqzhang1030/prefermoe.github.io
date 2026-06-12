@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="PrefMoE improves preference-sensitive personalization in multimodal large language models while reducing group preference collapse.">
+  <meta name="keywords" content="Personalized MLLM, Multimodal Large Language Model, Preference Collapse, PrefMoE, Personalization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href="https://wqzhang1030.github.io/Group-Preference-Collapse-in-Personalized-Multimodal-Large-Language-Models/">
+  <meta property="og:title" content="Group Preference Collapse in Personalized Multimodal Large Language Models">
+  <meta property="og:description" content="PrefMoE improves preference-sensitive personalization in multimodal large language models while reducing group preference collapse.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wqzhang1030.github.io/Group-Preference-Collapse-in-Personalized-Multimodal-Large-Language-Models/">
+  <meta property="og:image" content="https://wqzhang1030.github.io/Group-Preference-Collapse-in-Personalized-Multimodal-Large-Language-Models/static/images/preference-collapse-comic.png">
+
+  <meta name="twitter:title" content="Group Preference Collapse in Personalized Multimodal Large Language Models">
+  <meta name="twitter:description" content="PrefMoE improves preference-sensitive personalization in multimodal large language models while reducing group preference collapse.">
+  <meta name="twitter:image" content="https://wqzhang1030.github.io/Group-Preference-Collapse-in-Personalized-Multimodal-Large-Language-Models/static/images/preference-collapse-comic.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="citation_title" content="Group Preference Collapse in Personalized Multimodal Large Language Models">
+  <meta name="citation_author" content="Lyu, Fan">
+  <meta name="citation_author" content="Zhang, Wenqi">
+  <meta name="citation_author" content="van de Weijer, Joost">
+  <meta name="citation_publication_date" content="2026">
+
+  <title>Group Preference Collapse in Personalized Multimodal Large Language Models</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-widescreen">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Group Preference Collapse in Personalized Multimodal Large Language Models</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Fan Lyu,</span>
+            <span class="author-block">Wenqi Zhang,</span>
+            <span class="author-block">Joost van de Weijer</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Computer Vision Center, Universitat Autònoma de Barcelona</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/wqzhang1030/Group-Preference-Collapse-in-Personalized-Multimodal-Large-Language-Models" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="#BibTeX" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-quote-right"></i>
+                  </span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Personalized multimodal large language models (MLLMs) aim to generate user-specific responses, but existing methods mainly rely on profile-level information and overlook diverse user preferences. We identify group preference collapse, where multi-user personalized MLLMs become insensitive to individual preferences and drift toward dominant population-level choices due to suppressed preference signals and unreliable preference use during generation. We propose PrefMoE, a preference-centric framework that separates stable profile information from preference-related representations. PrefMoE decomposes preferences into shared prototypes and personalized residuals, preserves individualized residuals with imbalance-aware learning, counterfactual pseudo-user augmentation, and residual decorrelation, and routes profile and preference factors through separate LoRA adaptation paths. Experiments across multiple MLLM backbones show that PrefMoE improves preference-sensitive personalization while substantially reducing preference collapse.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <img src="static/images/preference-collapse-comic.png" alt="Illustration of group preference collapse in personalized MLLMs" class="center-image blend-img-background">
+  </div>
+</section>
+
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <center>
+          <h2 class="title is-2">Overview of PrefMoE</h2>
+          <img src="static/images/method-framework.png" alt="PrefMoE framework" class="center-image blend-img-background">
+          </center>
+          <div class="level-set has-text-justified">
+            <p>
+              Overview of PrefMoE. PrefMoE separates profile and preference representations, models preferences with shared prototypes and personalized residuals, and regularizes the residuals with contrastive learning and decorrelation. A hierarchical MoE router then activates profile- and preference-aware LoRA experts for query-dependent personalized reasoning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small is-light">
+  <div class="container is-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <center>
+          <h2 class="title is-2">MMPB-clean Dataset Statistics</h2>
+          <img src="static/images/mmpb-clean-dataset-statistics.png" alt="MMPB-clean dataset statistics" class="center-image blend-img-background">
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small is-light">
+  <div class="container is-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <center>
+          <h2 class="title is-2">Main Results</h2>
+          </center>
+          <div class="table-container main-results-table-container">
+            <table class="booktabs-table main-results-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Method</th>
+                  <th rowspan="2">Type</th>
+                  <th colspan="4">0-turn</th>
+                  <th colspan="4">10-turn</th>
+                </tr>
+                <tr>
+                  <th>Overall↑</th>
+                  <th>Preference↑</th>
+                  <th>Profile↑</th>
+                  <th>Collapse↓</th>
+                  <th>Overall↑</th>
+                  <th>Preference↑</th>
+                  <th>Profile↑</th>
+                  <th>Collapse↓</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="group-label">
+                  <td colspan="10">Non-tuned Models</td>
+                </tr>
+                <tr>
+                  <td>LLaVA-1.5-7B</td><td><em>NT</em></td>
+                  <td>0.3564</td><td>0.3387</td><td>0.3716</td><td>0.6228</td>
+                  <td>0.3167</td><td>0.3067</td><td>0.3337</td><td>0.6164</td>
+                </tr>
+                <tr>
+                  <td>LLaVA-1.5-13B</td><td><em>NT</em></td>
+                  <td>0.4023</td><td>0.3653</td><td>0.4222</td><td>0.6027</td>
+                  <td>0.3716</td><td>0.3333</td><td>0.3928</td><td>0.6119</td>
+                </tr>
+                <tr>
+                  <td>LLaVA-OV-72B</td><td><em>NT</em></td>
+                  <td>0.5100</td><td>0.4800</td><td>0.5262</td><td>0.5297</td>
+                  <td>0.4620</td><td>0.4333</td><td>0.4774</td><td>0.5525</td>
+                </tr>
+                <tr>
+                  <td>DeepSeek-VL2-Tiny</td><td><em>NT</em></td>
+                  <td>0.3683</td><td>0.3613</td><td>0.3720</td><td>0.7169</td>
+                  <td>0.3497</td><td>0.3440</td><td>0.3527</td><td>0.6895</td>
+                </tr>
+                <tr>
+                  <td>DeepSeek-VL2-Small</td><td><em>NT</em></td>
+                  <td>0.3866</td><td>0.3853</td><td>0.3871</td><td>0.6895</td>
+                  <td>0.3642</td><td>0.3667</td><td>0.3669</td><td>0.6712</td>
+                </tr>
+                <tr>
+                  <td>DeepSeek-VL2</td><td><em>NT</em></td>
+                  <td>0.4620</td><td>0.4533</td><td>0.4667</td><td>0.5890</td>
+                  <td>0.4103</td><td>0.4067</td><td>0.4122</td><td>0.5982</td>
+                </tr>
+                <tr>
+                  <td>Qwen2.5-VL-7B</td><td><em>NT</em></td>
+                  <td>0.4276</td><td>0.3587</td><td>0.5653</td><td>0.6484</td>
+                  <td>0.3885</td><td>0.3433</td><td>0.4315</td><td>0.6530</td>
+                </tr>
+                <tr>
+                  <td>Qwen2.5-VL-32B</td><td><em>NT</em></td>
+                  <td>0.4914</td><td>0.4333</td><td>0.5226</td><td>0.5708</td>
+                  <td>0.4410</td><td>0.4027</td><td>0.4616</td><td>0.5982</td>
+                </tr>
+                <tr>
+                  <td>Qwen2.5-VL-72B</td><td><em>NT</em></td>
+                  <td>0.5301</td><td>0.4600</td><td>0.5677</td><td>0.5023</td>
+                  <td>0.5016</td><td>0.4453</td><td>0.5319</td><td>0.5525</td>
+                </tr>
+
+                <tr class="group-label">
+                  <td colspan="10">Fine-tuned and PEFT Baselines</td>
+                </tr>
+                <tr>
+                  <td>LLaVA-1.5-7B</td><td><em>FFT</em></td>
+                  <td>0.5072</td><td>0.4413</td><td>0.5427</td><td>0.3425</td>
+                  <td>0.5026</td><td>0.4413</td><td>0.5355</td><td>0.3470</td>
+                </tr>
+                <tr>
+                  <td>LLaVA-1.5-13B</td><td><em>FFT</em></td>
+                  <td>0.5301</td><td>0.4600</td><td>0.5677</td><td>0.3105</td>
+                  <td>0.5100</td><td>0.4400</td><td>0.5477</td><td>0.3196</td>
+                </tr>
+                <tr>
+                  <td>LLaVA-OV-72B</td><td><em>FFT</em></td>
+                  <td>0.6200</td><td>0.5947</td><td>0.6337</td><td>0.3151</td>
+                  <td>0.5613</td><td>0.5320</td><td>0.5771</td><td>0.3379</td>
+                </tr>
+                <tr>
+                  <td>DeepSeek-VL2-Tiny</td><td><em>FFT</em></td>
+                  <td>0.4711</td><td>0.4213</td><td>0.4975</td><td>0.5845</td>
+                  <td>0.4681</td><td>0.4187</td><td>0.4946</td><td>0.5936</td>
+                </tr>
+                <tr>
+                  <td>DeepSeek-VL2-Small</td><td><em>FFT</em></td>
+                  <td>0.4862</td><td>0.3840</td><td>0.5412</td><td>0.6530</td>
+                  <td>0.4834</td><td>0.3747</td><td>0.5419</td><td>0.6530</td>
+                </tr>
+                <tr>
+                  <td>DeepSeek-VL2</td><td><em>FFT</em></td>
+                  <td>0.5814</td><td>0.5093</td><td>0.6201</td><td>0.4521</td>
+                  <td>0.5748</td><td>0.4987</td><td>0.6158</td><td>0.4566</td>
+                </tr>
+                <tr>
+                  <td>Qwen2.5-VL-7B</td><td><em>FFT</em></td>
+                  <td>0.4452</td><td>0.3013</td><td>0.5226</td><td>0.6530</td>
+                  <td>0.4807</td><td>0.3707</td><td>0.5398</td><td>0.7854</td>
+                </tr>
+                <tr>
+                  <td>Qwen2.5-VL-32B</td><td><em>FFT</em></td>
+                  <td>0.5718</td><td>0.5480</td><td>0.5849</td><td>0.4795</td>
+                  <td>0.4914</td><td>0.4333</td><td>0.5226</td><td>0.5114</td>
+                </tr>
+                <tr>
+                  <td>Qwen2.5-VL-72B</td><td><em>FFT</em></td>
+                  <td>0.6014</td><td>0.5947</td><td>0.6057</td><td>0.4018</td>
+                  <td>0.5217</td><td>0.5053</td><td>0.5305</td><td>0.3927</td>
+                </tr>
+                <tr>
+                  <td>Yo'LLaVA</td><td><em>PEFT</em></td>
+                  <td>0.5040</td><td>0.4880</td><td>0.5125</td><td>0.2075</td>
+                  <td>0.4840</td><td>0.4680</td><td>0.4925</td><td>0.2146</td>
+                </tr>
+                <tr>
+                  <td>LLaVA-NeXT-34B</td><td><em>PEFT</em></td>
+                  <td>0.5599</td><td>0.6200</td><td>0.5276</td><td>0.2466</td>
+                  <td>0.5299</td><td>0.5900</td><td>0.4976</td><td>0.2054</td>
+                </tr>
+                <tr>
+                  <td>LOVA3</td><td><em>PEFT</em></td>
+                  <td>0.5329</td><td>0.5680</td><td>0.5140</td><td>0.4292</td>
+                  <td>0.4979</td><td>0.5330</td><td>0.4790</td><td>0.4247</td>
+                </tr>
+                <tr>
+                  <td>TG-LLaVA</td><td><em>PEFT</em></td>
+                  <td>0.5413</td><td>0.5800</td><td>0.5204</td><td>0.2329</td>
+                  <td>0.5013</td><td>0.5400</td><td>0.4804</td><td>0.1506</td>
+                </tr>
+
+                <tr class="group-label">
+                  <td colspan="10">PrefMoE</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (LLaVA-1.5-7B)</td><td><em>PEFT</em></td>
+                  <td>0.6751</td><td>0.6733</td><td>0.6760</td><td>0.1233</td>
+                  <td>0.5986</td><td>0.5840</td><td>0.6065</td><td>0.1553</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (LLaVA-1.5-13B)</td><td><em>PEFT</em></td>
+                  <td>0.7012</td><td>0.6800</td><td>0.7125</td><td>0.1416</td>
+                  <td>0.6601</td><td>0.6267</td><td>0.6781</td><td>0.1370</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (LLaVA-OV-72B)</td><td><em>PEFT</em></td>
+                  <td>0.7893</td><td>0.7613</td><td>0.8043</td><td>0.1142</td>
+                  <td>0.6914</td><td>0.6627</td><td>0.7068</td><td><span class="best-value">0.1187</span></td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (DeepSeek-VL2-Tiny)</td><td><em>PEFT</em></td>
+                  <td>0.6601</td><td>0.6467</td><td>0.6674</td><td>0.2511</td>
+                  <td>0.6033</td><td>0.5933</td><td>0.6086</td><td>0.2740</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (DeepSeek-VL2-Small)</td><td><em>PEFT</em></td>
+                  <td>0.7305</td><td>0.5813</td><td>0.8108</td><td>0.2740</td>
+                  <td>0.6382</td><td>0.5200</td><td>0.7018</td><td>0.2694</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (DeepSeek-VL2)</td><td><em>PEFT</em></td>
+                  <td>0.7991</td><td>0.7520</td><td><span class="best-value">0.8244</span></td><td>0.1324</td>
+                  <td>0.7012</td><td><span class="best-value">0.6800</span></td><td>0.7125</td><td>0.1826</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (Qwen2.5-VL-7B)</td><td><em>PEFT</em></td>
+                  <td>0.7613</td><td>0.6880</td><td>0.8007</td><td>0.1781</td>
+                  <td>0.6503</td><td>0.6253</td><td>0.6638</td><td>0.1826</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (Qwen2.5-VL-32B)</td><td><em>PEFT</em></td>
+                  <td>0.7902</td><td>0.7640</td><td>0.8043</td><td>0.1416</td>
+                  <td>0.6900</td><td>0.6653</td><td>0.7032</td><td>0.2100</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>PrefMoE (Qwen2.5-VL-72B)</td><td><em>PEFT</em></td>
+                  <td><span class="best-value">0.8112</span></td><td><span class="best-value">0.7893</span></td><td>0.8237</td><td><span class="best-value">0.1096</span></td>
+                  <td><span class="best-value">0.7301</span></td><td>0.5813</td><td><span class="best-value">0.8100</span></td><td>0.1279</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-caption">
+            <p>
+              <strong>Table 1.</strong> Major comparisons with SOTAs under 0-turn and 10-turn settings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small">
+  <div class="container is-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <center>
+          <h2 class="title is-2">Ablation Study</h2>
+          </center>
+          <div class="table-container ablation-table-container">
+            <table class="booktabs-table ablation-table">
+              <thead>
+                <tr>
+                  <th colspan="6"></th>
+                  <th colspan="4">0-turn</th>
+                  <th colspan="4">10-turn</th>
+                </tr>
+                <tr>
+                  <th>E</th>
+                  <th>P</th>
+                  <th>I</th>
+                  <th>C</th>
+                  <th>D</th>
+                  <th>M</th>
+                  <th>Overall↑</th>
+                  <th>Preference↑</th>
+                  <th>Profile↑</th>
+                  <th>Collapse↓</th>
+                  <th>Overall↑</th>
+                  <th>Preference↑</th>
+                  <th>Profile↑</th>
+                  <th>Collapse↓</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>✓</td><td></td><td></td><td></td><td></td><td></td>
+                  <td>0.5562</td><td>0.4120</td><td>0.6337</td><td>0.6027</td>
+                  <td>0.4928</td><td>0.3584</td><td>0.5651</td><td>0.6347</td>
+                </tr>
+                <tr>
+                  <td>✓</td><td>✓</td><td></td><td></td><td></td><td></td>
+                  <td>0.6000</td><td>0.5700</td><td>0.6159</td><td>0.3333</td>
+                  <td>0.5266</td><td>0.4902</td><td>0.5461</td><td>0.3653</td>
+                </tr>
+                <tr>
+                  <td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td></td>
+                  <td>0.6279</td><td>0.6133</td><td>0.6358</td><td>0.3288</td>
+                  <td>0.5506</td><td>0.5275</td><td>0.5631</td><td>0.3607</td>
+                </tr>
+                <tr>
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td>
+                  <td>0.6303</td><td>0.6253</td><td>0.6330</td><td>0.2283</td>
+                  <td>0.5571</td><td>0.5393</td><td>0.5667</td><td>0.2603</td>
+                </tr>
+                <tr>
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td></td>
+                  <td>0.6382</td><td>0.6467</td><td>0.6337</td><td>0.1457</td>
+                  <td>0.5688</td><td>0.5622</td><td>0.5723</td><td>0.1781</td>
+                </tr>
+                <tr class="prefmoe-row">
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+                  <td><span class="best-value">0.6751</span></td><td><span class="best-value">0.6733</span></td><td><span class="best-value">0.6760</span></td><td><span class="best-value">0.1233</span></td>
+                  <td><span class="best-value">0.5986</span></td><td><span class="best-value">0.5840</span></td><td><span class="best-value">0.6065</span></td><td><span class="best-value">0.1553</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-caption">
+            <p>
+              <strong>Table 2.</strong> Component-wise ablation study of the proposed method. E, P, I, C, D, and M denote the basic user embedding module, profile factor learning, imbalance-aware residual preservation, counterfactual user augmentation, preference decorrelation, and hierarchical MoE router, respectively.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small is-light">
+  <div class="container is-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <center>
+          <h2 class="title is-2">Qualitative Examples</h2>
+          <img src="static/images/qualitative-examples.png" alt="Qualitative examples of personalized prediction cases" class="center-image blend-img-background qualitative-image">
+          </center>
+          <div class="table-caption">
+            <p>
+              <strong>Figure 3.</strong> Qualitative examples. <code>&lt;SKS&gt;</code> denotes the target personalized identity or concept. Green boxes indicate correct predictions, while red marks indicate incorrect predictions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{lyu2026group,
+  title={Group Preference Collapse in Personalized Multimodal Large Language Models},
+  author={Lyu, Fan and Zhang, Wenqi and van de Weijer, Joost},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br>
+            This website is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="640" viewBox="0 0 1880 640" role="img" aria-label="MMPB-Clean dataset statistics">
+<defs>
+<style>
+text{font-family:'Times New Roman',Times,serif;fill:#242733}
+.sans{font-family:Arial,Helvetica,sans-serif}
+.title{font-size:28px;font-weight:700}
+.caption{font-size:27px;font-weight:700}
+.label{font-size:20px}
+.small{font-size:16px}
+.tiny{font-size:14px}
+.muted{fill:#6C7180}
+.axis{stroke:#242733;stroke-width:1.5}
+.grid{stroke:#D9DDE8;stroke-width:1}
+</style>
+</defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="310.0" y="58.0" text-anchor="middle" class="title">Question type distribution</text>
+<path d="M 310.000 95.000 A 175.000 175.000 0 0 1 310.703 444.999 L 310.486 390.999 A 121.000 121.000 0 0 0 310.000 149.000 Z" fill="#D45BB2" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="488.0" y1="269.6" x2="506.0" y2="269.6" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="506.0" y1="269.6" x2="540.0" y2="269.5" stroke="#AEB4C2" stroke-width="1"/>
+<text x="546.0" y="255.5" text-anchor="start" class="small"><tspan x="546.0" dy="0.0">Preference Yes/No</tspan><tspan x="546.0" dy="18.0">6,250</tspan><tspan x="546.0" dy="18.0">49.9%</tspan></text>
+<path d="M 310.703 444.999 A 175.000 175.000 0 0 1 207.821 412.072 L 239.351 368.233 A 121.000 121.000 0 0 0 310.486 390.999 Z" fill="#9966D9" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="255.7" y1="439.5" x2="250.3" y2="456.7" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="250.3" y1="456.7" x2="238.5" y2="487.2" stroke="#AEB4C2" stroke-width="1"/>
+<text x="232.5" y="473.2" text-anchor="end" class="small"><tspan x="232.5" dy="0.0">Preference MCQ</tspan><tspan x="232.5" dy="18.0">1,250</tspan><tspan x="232.5" dy="18.0">10.0%</tspan></text>
+<path d="M 207.821 412.072 A 175.000 175.000 0 0 1 241.754 108.856 L 262.813 158.580 A 121.000 121.000 0 0 0 239.351 368.233 Z" fill="#55C96F" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="133.1" y1="250.2" x2="115.2" y2="248.2" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="115.2" y1="248.2" x2="81.4" y2="244.6" stroke="#AEB4C2" stroke-width="1"/>
+<text x="75.4" y="230.6" text-anchor="end" class="small"><tspan x="75.4" dy="0.0">Recognition Yes/No</tspan><tspan x="75.4" dy="18.0">4,218</tspan><tspan x="75.4" dy="18.0">33.7%</tspan></text>
+<path d="M 241.754 108.856 A 175.000 175.000 0 0 1 310.000 95.000 L 310.000 149.000 A 121.000 121.000 0 0 0 262.813 158.580 Z" fill="#65C9CD" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="274.6" y1="95.6" x2="271.0" y2="77.9" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="271.0" y1="77.9" x2="262.6" y2="46.6" stroke="#AEB4C2" stroke-width="1"/>
+<text x="256.6" y="32.6" text-anchor="end" class="small"><tspan x="256.6" dy="0.0">Recognition MCQ</tspan><tspan x="256.6" dy="18.0">798</tspan><tspan x="256.6" dy="18.0">6.4%</tspan></text>
+<path d="M 310.000 158.000 A 112.000 112.000 0 1 1 244.605 360.926 L 267.961 328.453 A 72.000 72.000 0 1 0 310.000 198.000 Z" fill="#C94FA3" stroke="#FFFFFF" stroke-width="2"/>
+<path d="M 244.605 360.926 A 112.000 112.000 0 0 1 310.000 158.000 L 310.000 198.000 A 72.000 72.000 0 0 0 267.961 328.453 Z" fill="#55B96B" stroke="#FFFFFF" stroke-width="2"/>
+<circle cx="310.0" cy="270.0" r="68.0" fill="#FFFFFF" stroke="none" stroke-width="1"/>
+<text x="310.0" y="255.0" text-anchor="middle" class="label" font-weight="700"><tspan x="310.0" dy="0.0">12,516</tspan><tspan x="310.0" dy="25.0">QA pairs</tspan></text>
+<rect x="220.0" y="488.0" width="18.0" height="18.0" rx="2.0" fill="#C94FA3"/>
+<text x="248.0" y="503.0" text-anchor="start" class="small">Preference</text>
+<rect x="385.0" y="488.0" width="18.0" height="18.0" rx="2.0" fill="#55B96B"/>
+<text x="413.0" y="503.0" text-anchor="start" class="small">Recognition</text>
+<text x="890.0" y="58.0" text-anchor="middle" class="title">Identity composition</text>
+<path d="M 890.000 116.000 A 154.000 154.000 0 0 1 937.174 416.597 L 917.569 355.673 A 90.000 90.000 0 0 0 890.000 180.000 Z" fill="#D95D59" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="1045.1" y1="245.7" x2="1062.9" y2="242.9" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="1062.9" y1="242.9" x2="1104.4" y2="236.7" stroke="#AEB4C2" stroke-width="1"/>
+<text x="1110.4" y="222.7" text-anchor="start" class="small"><tspan x="1110.4" dy="0.0">Human users</tspan><tspan x="1110.4" dy="18.0">50</tspan><tspan x="1110.4" dy="18.0">45.0%</tspan></text>
+<path d="M 937.174 416.597 A 154.000 154.000 0 0 1 777.322 374.975 L 824.149 331.349 A 90.000 90.000 0 0 0 917.569 355.673 Z" fill="#D5BD54" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="850.4" y1="421.9" x2="845.9" y2="439.4" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="845.9" y1="439.4" x2="833.8" y2="478.1" stroke="#AEB4C2" stroke-width="1"/>
+<text x="827.8" y="464.1" text-anchor="end" class="small"><tspan x="827.8" dy="0.0">Animals</tspan><tspan x="827.8" dy="18.0">20</tspan><tspan x="827.8" dy="18.0">18.0%</tspan></text>
+<path d="M 777.322 374.975 A 154.000 154.000 0 0 1 737.862 246.124 L 801.088 256.047 A 90.000 90.000 0 0 0 824.149 331.349 Z" fill="#56C978" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="739.9" y1="316.0" x2="722.7" y2="321.2" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="722.7" y1="321.2" x2="682.4" y2="333.0" stroke="#AEB4C2" stroke-width="1"/>
+<text x="676.4" y="319.0" text-anchor="end" class="small"><tspan x="676.4" dy="0.0">Characters</tspan><tspan x="676.4" dy="18.0">16</tspan><tspan x="676.4" dy="18.0">14.4%</tspan></text>
+<path d="M 737.862 246.124 A 154.000 154.000 0 0 1 890.000 116.000 L 890.000 180.000 A 90.000 90.000 0 0 0 801.088 256.047 Z" fill="#67C9C9" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="788.0" y1="150.7" x2="776.3" y2="137.0" stroke="#AEB4C2" stroke-width="1"/>
+<line x1="776.3" y1="137.0" x2="748.3" y2="106.6" stroke="#AEB4C2" stroke-width="1"/>
+<text x="742.3" y="92.6" text-anchor="end" class="small"><tspan x="742.3" dy="0.0">Objects</tspan><tspan x="742.3" dy="18.0">25</tspan><tspan x="742.3" dy="18.0">22.5%</tspan></text>
+<circle cx="890.0" cy="270.0" r="84.0" fill="#FFFFFF" stroke="none" stroke-width="1"/>
+<text x="890.0" y="245.0" text-anchor="middle" class="label" font-weight="700"><tspan x="890.0" dy="0.0">111</tspan><tspan x="890.0" dy="24.0">identities</tspan><tspan x="890.0" dy="24.0">50 human users</tspan></text>
+<rect x="694.0" y="488.0" width="18.0" height="18.0" rx="2.0" fill="#D95D59"/>
+<text x="722.0" y="503.0" text-anchor="start" class="small">Human users</text>
+<rect x="899.0" y="488.0" width="18.0" height="18.0" rx="2.0" fill="#D5BD54"/>
+<text x="927.0" y="503.0" text-anchor="start" class="small">Animals</text>
+<rect x="694.0" y="518.0" width="18.0" height="18.0" rx="2.0" fill="#56C978"/>
+<text x="722.0" y="533.0" text-anchor="start" class="small">Characters</text>
+<rect x="899.0" y="518.0" width="18.0" height="18.0" rx="2.0" fill="#67C9C9"/>
+<text x="927.0" y="533.0" text-anchor="start" class="small">Objects</text>
+<text x="1495.0" y="58.0" text-anchor="middle" class="title">Train/test samples by type</text>
+<line x1="1190.0" y1="435.0" x2="1800.0" y2="435.0" stroke="#D9DDE8" stroke-width="1"/>
+<text x="1175.0" y="441.0" text-anchor="end" class="small">0</text>
+<line x1="1190.0" y1="325.0" x2="1800.0" y2="325.0" stroke="#D9DDE8" stroke-width="1"/>
+<text x="1175.0" y="331.0" text-anchor="end" class="small">2,000</text>
+<line x1="1190.0" y1="215.0" x2="1800.0" y2="215.0" stroke="#D9DDE8" stroke-width="1"/>
+<text x="1175.0" y="221.0" text-anchor="end" class="small">4,000</text>
+<line x1="1190.0" y1="105.0" x2="1800.0" y2="105.0" stroke="#D9DDE8" stroke-width="1"/>
+<text x="1175.0" y="111.0" text-anchor="end" class="small">6,000</text>
+<line x1="1190.0" y1="105.0" x2="1190.0" y2="435.0" stroke="#242733" stroke-width="1.5"/>
+<line x1="1190.0" y1="435.0" x2="1800.0" y2="435.0" stroke="#242733" stroke-width="1.5"/>
+<text x="1122.0" y="270.0" text-anchor="middle" class="label" transform="rotate(-90.0 1122.0 270.0)">Samples</text>
+<rect x="1218.2" y="380.0" width="42.0" height="55.0" rx="0.0" fill="#4D5FB3"/>
+<text x="1239.2" y="371.0" text-anchor="middle" class="tiny">1,000</text>
+<rect x="1272.2" y="421.2" width="42.0" height="13.8" rx="0.0" fill="#59C3CD"/>
+<text x="1293.2" y="412.2" text-anchor="middle" class="tiny">250</text>
+<text x="1266.2" y="466.0" text-anchor="middle" class="small"><tspan x="1266.2" dy="0.0">Pref.</tspan><tspan x="1266.2" dy="18.0">MCQ</tspan></text>
+<rect x="1370.8" y="118.8" width="42.0" height="316.2" rx="0.0" fill="#4D5FB3"/>
+<text x="1391.8" y="109.8" text-anchor="middle" class="tiny">5,750</text>
+<rect x="1424.8" y="407.5" width="42.0" height="27.5" rx="0.0" fill="#59C3CD"/>
+<text x="1445.8" y="398.5" text-anchor="middle" class="tiny">500</text>
+<text x="1418.8" y="466.0" text-anchor="middle" class="small"><tspan x="1418.8" dy="0.0">Pref.</tspan><tspan x="1418.8" dy="18.0">Yes/No</tspan></text>
+<rect x="1523.2" y="397.2" width="42.0" height="37.8" rx="0.0" fill="#4D5FB3"/>
+<text x="1544.2" y="388.2" text-anchor="middle" class="tiny">687</text>
+<rect x="1577.2" y="428.9" width="42.0" height="6.1" rx="0.0" fill="#59C3CD"/>
+<text x="1598.2" y="419.9" text-anchor="middle" class="tiny">111</text>
+<text x="1571.2" y="466.0" text-anchor="middle" class="small"><tspan x="1571.2" dy="0.0">Recog.</tspan><tspan x="1571.2" dy="18.0">MCQ</tspan></text>
+<rect x="1675.8" y="273.6" width="42.0" height="161.4" rx="0.0" fill="#4D5FB3"/>
+<text x="1696.8" y="264.6" text-anchor="middle" class="tiny">2,934</text>
+<rect x="1729.8" y="364.4" width="42.0" height="70.6" rx="0.0" fill="#59C3CD"/>
+<text x="1750.8" y="355.4" text-anchor="middle" class="tiny">1,284</text>
+<text x="1723.8" y="466.0" text-anchor="middle" class="small"><tspan x="1723.8" dy="0.0">Recog.</tspan><tspan x="1723.8" dy="18.0">Yes/No</tspan></text>
+<rect x="1615.0" y="62.0" width="20.0" height="16.0" rx="2.0" fill="#4D5FB3"/>
+<text x="1645.0" y="75.0" text-anchor="start" class="small">Train</text>
+<rect x="1709.0" y="62.0" width="20.0" height="16.0" rx="2.0" fill="#59C3CD"/>
+<text x="1739.0" y="75.0" text-anchor="start" class="small">Test</text>
+<text x="310.0" y="590.0" text-anchor="middle" class="caption">(a) Distribution of question types in MMPB-Clean.</text>
+<text x="890.0" y="590.0" text-anchor="middle" class="caption">(b) Distribution of identity categories.</text>
+<text x="1495.0" y="590.0" text-anchor="middle" class="caption">(c) Train/test split by question type.</text>
+</svg>
